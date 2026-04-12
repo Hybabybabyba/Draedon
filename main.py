@@ -4,8 +4,7 @@ import argparse
 from core.engine import Engine
 
 def print_results(results):
-    print("\n" + "="*50)
-    print("ReSULTS")
+    print("Results")
     print("="*50)
     for r in results:
         status = "✓" if r.success else "✗"
@@ -14,7 +13,6 @@ def print_results(results):
             print(json.dumps(r.data, indent=2, ensure_ascii=False))
         else:
             print(f"Error: {r.error}")
-    print("\n" + "="*50)
 
 
 def main():
