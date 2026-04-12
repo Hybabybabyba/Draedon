@@ -17,14 +17,14 @@
   E##D.        DWi   ,KK: ;##D.    L##,        tt E##D.            t      ..         G#E      
   E#t                     ,,,      .,,            E#t                                 fE      
   L:                                              L:                                   ,      
-  
+
 ```
 
 **Modular Reconnaissance Framework**
 
 [![Python](https://img.shields.io/badge/Python-3.10%2B-8b5cf6?style=flat-square&logo=python&logoColor=white)](https://python.org)
 [![License](https://img.shields.io/badge/License-MIT-6d28d9?style=flat-square)](LICENSE)
-[![Modules](https://img.shields.io/badge/Modules-3-7c3aed?style=flat-square)](modules/)
+[![Modules](https://img.shields.io/badge/Modules-1-7c3aed?style=flat-square)](modules/)
 [![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux%20%7C%20macOS-4c1d95?style=flat-square)]()
 
 </div>
@@ -40,8 +40,6 @@
 | Name | Description | Target |
 |------|-------------|--------|
 | `geoip` | IP geolocation via ip-api.com | `ip` |
-| `whois` | Domain registration info | `domain` |
-| `dns` | DNS records — A, MX, TXT, NS, CNAME, SPF, DMARC | `domain` |
 
 ---
 
