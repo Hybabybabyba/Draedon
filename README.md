@@ -1,6 +1,15 @@
 <div align="center">
-  <img src="ascii-art-text.png" alt="Draedon" width="750"/>
-</div>
+
+```
+oooooooooo.   ooooooooo.         .o.       oooooooooooo oooooooooo.     .oooooo.   ooooo      ooo      
+`888'   `Y8b  `888   `Y88.      .888.      `888'     `8 `888'   `Y8b   d8P'  `Y8b  `888b.     `8'      
+ 888      888  888   .d88'     .8"888.      888          888      888 888      888  8 `88b.    8       
+ 888      888  888ooo88P'     .8' `888.     888oooo8     888      888 888      888  8   `88b.  8       
+ 888      888  888`88b.      .88ooo8888.    888    "     888      888 888      888  8     `88b.8       
+ 888     d88'  888  `88b.   .8'     `888.   888       o  888     d88' `88b    d88'  8       `888       
+o888bood8P'   o888o  o888o o88o     o8888o o888ooooood8 o888bood8P'    `Y8bood8P'  o8o        `8       
+                                                                                          
+```
 
 **Modular Reconnaissance Framework**
 
