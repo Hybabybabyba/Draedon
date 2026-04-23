@@ -15,7 +15,7 @@ class module_result:
     )
 
 class base_module(ABC):
-    namr: str="base"
+    name: str="base"
     description: str=""
     accepts: list[str]=[]
 
@@ -36,7 +36,7 @@ class base_module(ABC):
     
     def fail(self, target: str, error: str) -> module_result:
         return module_result(
-            module=self.main,
+            module=self.name,
             target=target,
             success=False,
             data={},
