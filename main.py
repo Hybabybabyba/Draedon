@@ -22,7 +22,7 @@ def main():
     parser.add_argument("target", nargs="?", help="Target")
     parser.add_argument(
         "--type", default="ip",
-        choices=["ip", "domain", "url", "email"],
+        choices=["ip", "domain", "url", "email", "shodan"],
         help="Target type"
     )
     parser.add_argument(

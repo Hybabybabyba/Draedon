@@ -6,8 +6,8 @@ from core.base_module import base_module, module_result
 class shodan_module(base_module):
     name        = "shodan"
     description = "Shodan scan: ports, vulns, org, OS"
-    accepts     = ["ip"]
-
+    accepts     = ["shodan"]
+    
     def run(self, target: str) -> module_result:
         api_key = os.getenv("SHODAN_API_KEY")
         if not api_key:
