@@ -4,7 +4,7 @@ from core.base_module import base_module, module_result
 class whois_module(base_module):
     name        = "whois"
     description = "Whois info about domain"
-    accepts     = ["domain"]
+    supported_types = ["domain"]
 
     def run(self, target: str) -> module_result:
         try:

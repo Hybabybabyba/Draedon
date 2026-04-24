@@ -1,4 +1,3 @@
-# core/storage.py
 import sqlite3
 import json
 from pathlib import Path
@@ -32,12 +31,12 @@ class Storage:
                 INSERT INTO results (module, target, success, data, error, timestamp)
                 VALUES (?, ?, ?, ?, ?, ?)
             """, (
-                result.module,
+                result.module_name,
                 result.target,
                 int(result.success),
-                json.dumps(result.data),
+                json.dumps(result.result_data),
                 result.error,
-                result.timestamp
+                result.timestamp,
             ))
 
     def get(self, target: str = None, module: str = None) -> list[dict]:

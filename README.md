@@ -31,7 +31,7 @@
 
 ---
 
-**Draedon** is a modular, cross-platform reconnaissance framework built for passive and informational intelligence gathering. Designed around a clean plugin architecture — drop a file into `modules/`, and it works.
+**Draedon** is a modular, cross-platform reconnaissance framework built for passive and informational intelligence gathering. Designed around a clean plugin architecture - drop a file into `modules/`, and it works.
 
 ---
 

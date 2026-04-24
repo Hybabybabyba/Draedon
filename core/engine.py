@@ -15,52 +15,63 @@ class Engine:
 
     def _load_modules(self):
         for filepath in MODULES_DIR.glob("py_*.py"):
-            module_name = filepath.stem  
+            module_name = filepath.stem
             try:
-                spec = importlib.util.spec_from_file_location(
-                    module_name, filepath
-                )
+                spec = importlib.util.spec_from_file_location(module_name, filepath)
                 mod = importlib.util.module_from_spec(spec)
                 spec.loader.exec_module(mod)
                 for _, cls in inspect.getmembers(mod, inspect.isclass):
                     if issubclass(cls, base_module) and cls is not base_module:
                         instance = cls()
                         self.modules[instance.name] = instance
-                        print(f"[+] Module has been loaded: {instance.name}")
+                        print(f"[+] Module loaded: {instance.name}")
                         break
-
             except Exception as e:
-                print(f"[!] Load Error {module_name}: {e}")
+                print(f"[!] Load error {module_name}: {e}")
 
-    def run(self, target: str, target_type: str = "ip") -> list[module_result]:
+    def run_smart(self, target: str, target_type: str) -> list[module_result]:
+        """Run all modules that support the given target type."""
         results = []
-        eligible = [
-            m for m in self.modules.values()
-            if m.can_handle(target_type)
-        ]
-
-        if not eligible:
-            print(f"[!] No modules for this mission: {target_type}")
-            return results
-
-        print(f"\n Target: {target} ({target_type})")
-        print(f" Modules to execute: {len(eligible)}\n")
-
-        for module in eligible:
-            print(f"  >> {module.name}...")
+        for module in self.modules.values():
+            if not module.can_handle(target_type):
+                continue
             try:
                 result = module.run(target)
-                self.storage.save(result)
-                results.append(result)
-                status = "OK" if result.success else f"FAIL: {result.error}"
-                print(f"  << {module.name}: {status}")
             except Exception as e:
-                print(f"  << {module.name}: EXCEPTION: {e}")
+                result = module_result(
+                    module_name=module.name,
+                    target=target,
+                    success=False,
+                    result_data={},
+                    error=str(e),
+                )
+            self.storage.save(result)
+            results.append(result)
+        return results
 
+    def run_manual(self, target: str, selected_names: list[str]) -> list[module_result]:
+        """Run only the explicitly selected modules."""
+        results = []
+        for name in selected_names:
+            module = self.modules.get(name)
+            if not module:
+                continue
+            try:
+                result = module.run(target)
+            except Exception as e:
+                result = module_result(
+                    module_name=module.name,
+                    target=target,
+                    success=False,
+                    result_data={},
+                    error=str(e),
+                )
+            self.storage.save(result)
+            results.append(result)
         return results
 
     def list_modules(self):
         print("\n Loaded modules:")
         for name, mod in self.modules.items():
-            types = ", ".join(mod.accepts)
+            types = ", ".join(mod.supported_types)
             print(f"  · {name:<20} {mod.description} [{types}]")

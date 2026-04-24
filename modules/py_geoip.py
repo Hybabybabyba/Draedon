@@ -6,7 +6,7 @@ from core.base_module import base_module, module_result
 class geoIPmodule(base_module):
     name        = "geoip"
     description = "GEO of ip:"
-    accepts     = ["ip"]
+    supported_types = ["ip"]
 
     def run(self, target: str) -> module_result:
         url = (
