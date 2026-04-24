@@ -4,14 +4,11 @@ class Draedon < Formula
   desc "Modular passive reconnaissance framework"
   homepage "https://github.com/Hybabybabyba/draedon"
   url "https://github.com/Hybabybabyba/draedon/archive/refs/tags/v1.1.0.tar.gz"
-  sha256 "" # run: brew fetch --force draedon && brew audit draedon
+  sha256 "DC0506400A75D9A573A9E30AF8D2B4660878871FD1F599A7EB1D1E592B5F42C5" # run: brew fetch --force draedon && brew audit draedon
   license "MIT"
   head "https://github.com/Hybabybabyba/draedon.git", branch: "main"
 
   depends_on "python@3.12"
-
-  # Auto-generate resource blocks after publishing a release:
-  #   brew update-python-resources Formula/draedon.rb
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/source/c/certifi/certifi-2024.8.30.tar.gz"
     sha256 "bec941d2aa8195e248a60b31ff9f0558284cf01a52591ceda73ea9afffd69fd9"
