@@ -1,17 +1,5 @@
-from setuptools import setup, find_packages
+# Legacy shim — all configuration lives in pyproject.toml.
+# setuptools >= 61 reads pyproject.toml automatically.
+from setuptools import setup
 
-setup(
-    name='draedon',
-    version='1.03',
-    py_modules=['main'], 
-    packages=find_packages(),
-    install_requires=[
-        'rich',
-        'inquirer', #strelochki
-    ],
-    entry_points={
-        'console_scripts': [
-            'draedon = main:main', 
-        ],
-    },
-)
+setup()

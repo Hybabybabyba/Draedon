@@ -33,7 +33,7 @@ KY = "#80deea"   # light teal - table keys
 VL = "#cfd8dc"   # off-white - table values
 HL = "#ffd740"   # amber - counts / highlights
 
-VERSION = "v1.06"
+VERSION = "v1.1.0"
 _GLITCH  = r"!@#$%^&*<>[]{}|\/?~`0123456789XZ@#$!"
 
 BANNER = [
@@ -234,7 +234,7 @@ def _run_autopilot(engine: Engine) -> bool:
 
     ttype = identify_target(target)
     if ttype == "unknown":
-        console.print(f"\n  [{ER}]could not detect target type — check your input[/{ER}]\n")
+        console.print(f"\n  [{ER}]could not detect target type - check your input[/{ER}]\n")
         return False
 
     info = Text()
@@ -258,7 +258,7 @@ def _run_autopilot(engine: Engine) -> bool:
 def _run_manual(engine: Engine) -> bool:
     console.print()
     choices = [
-        (f"{name:<22}[{', '.join(mod.supported_types)}]  —  {mod.description}", name)
+        (f"{name:<22}[{', '.join(mod.supported_types)}]  -  {mod.description}", name)
         for name, mod in engine.modules.items()
     ]
 

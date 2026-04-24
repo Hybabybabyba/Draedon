@@ -30,7 +30,6 @@ class Engine:
                 print(f"[!] Load error {module_name}: {e}")
 
     def run_smart(self, target: str, target_type: str) -> list[module_result]:
-        """Run all modules that support the given target type."""
         results = []
         for module in self.modules.values():
             if not module.can_handle(target_type):
@@ -50,7 +49,6 @@ class Engine:
         return results
 
     def run_manual(self, target: str, selected_names: list[str]) -> list[module_result]:
-        """Run only the explicitly selected modules."""
         results = []
         for name in selected_names:
             module = self.modules.get(name)

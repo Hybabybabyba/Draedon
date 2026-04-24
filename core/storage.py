@@ -3,7 +3,7 @@ import json
 from pathlib import Path
 from core.base_module import module_result
 
-DB_PATH = Path(__file__).parent.parent / "output" / "recon.db"
+DB_PATH = Path.home() / ".draedon" / "recon.db"
 
 class Storage:
     def __init__(self, db_path: Path = DB_PATH):
