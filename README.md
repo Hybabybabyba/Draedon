@@ -116,7 +116,7 @@ python main.py    # Windows
 
 ## Global Access
 
-The cleanest way to get the `draedon` command globally is via **pipx** — it manages its own isolated environment automatically, no manual venv needed:
+The cleanest way to get the `draedon` command globally is via **pipx** - it manages its own isolated environment automatically, no manual venv needed:
 
 ```bash
 pipx install git+https://github.com/Hybabybabyba/Draedon.git
@@ -179,7 +179,7 @@ Results are saved automatically to `output/recon.db` (SQLite) after each run.
 1. Create `modules/py_<name>.py`
 2. Subclass `base_module`, set `self.name`, `self.description`, `self.supported_types`
 3. Implement `run(self, target) -> module_result` - return `self.ok(data_dict)` or `self.fail(error_str)`
-4. The engine picks it up automatically on next run — no registration needed
+4. The engine picks it up automatically on next run - no registration needed
 
 ---
 
