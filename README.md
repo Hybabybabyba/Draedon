@@ -76,11 +76,11 @@ cd Draedon
 **2. Create and activate a virtual environment**
 
 ```bash
-# Linux/macSos
+# Linux / macOS
 python3 -m venv venv
 source venv/bin/activate
 
-# Windows (Powershell)
+# Windows (PowerShell)
 python -m venv venv
 .\venv\Scripts\activate
 ```
@@ -99,16 +99,36 @@ pip install -r requirements.txt
 
 **5. Run**
 
+**Global command** *(if installed via `pipx` or `pip install -e .`):*
+
 ```bash
-python3 main.py        # Linux/macSos
-python main.py         # Windows
+draedon
+```
+
+**From source** *(manual venv / development):*
+
+```bash
+python3 main.py   # Linux / macOS
+python main.py    # Windows
 ```
 
 ---
 
-## Global Access (optional)
+## Global Access
 
-Run `draedon` from any directory without activating the venv each time.
+The cleanest way to get the `draedon` command globally is via **pipx** — it manages its own isolated environment automatically, no manual venv needed:
+
+```bash
+pipx install git+https://github.com/Hybabybabyba/Draedon.git
+```
+
+That's it. `draedon` is now available system-wide.
+
+> **Why pipx works now:** The `pyproject.toml` build backend was updated from the broken `setuptools.backends.legacy` to the standard `setuptools.build_meta`, which is fully compatible with Python 3.12+.
+
+---
+
+### Manual alternatives (if you prefer not to use pipx)
 
 **Linux / macOS - shell alias**
 
@@ -120,7 +140,7 @@ alias draedon="source /path/to/Draedon/venv/bin/activate && python3 /path/to/Dra
 
 Then reload: `source ~/.bashrc`
 
-**Linux / macOS - launcher script**
+**Linux / macOS - launcher script in PATH**
 
 ```bash
 sudo tee /usr/local/bin/draedon > /dev/null << 'EOF'
