@@ -1,6 +1,0 @@
-Metadata-Version: 2.4
-Name: draedon
-Version: 1.0
-Requires-Dist: rich
-Requires-Dist: inquirer
-Dynamic: requires-dist
