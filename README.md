@@ -22,7 +22,7 @@
 
 **Modular Reconnaissance Framework**
 
-[![Version](https://img.shields.io/badge/Version-1.1.0-8b5cf6?style=flat-square)](https://github.com/Hybabybabyba/draedon/releases)
+[![Version](https://img.shields.io/badge/Version-1.1.5-8b5cf6?style=flat-square)](https://github.com/Hybabybabyba/draedon/releases)
 [![Python](https://img.shields.io/badge/Python-3.10%2B-8b5cf6?style=flat-square&logo=python&logoColor=white)](https://python.org)
 [![License](https://img.shields.io/badge/License-MIT-6d28d9?style=flat-square)](LICENSE)
 [![Modules](https://img.shields.io/badge/Modules-5-7c3aed?style=flat-square)](modules/)

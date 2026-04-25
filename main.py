@@ -33,7 +33,7 @@ KY = "#80deea"   # light teal - table keys
 VL = "#cfd8dc"   # off-white - table values
 HL = "#ffd740"   # amber - counts / highlights
 
-VERSION = "v1.1.0"
+VERSION = "v1.1.5"
 _GLITCH  = r"!@#$%^&*<>[]{}|\/?~`0123456789XZ@#$!"
 
 BANNER = [
@@ -173,7 +173,7 @@ def _print_result(res) -> None:
         return
 
     table = Table(
-        title=f"[bold {OK}]✔  {res.module_name.upper()}[/bold {OK}]",
+        title=f"[bold {OK}]+  {res.module_name.upper()}[/bold {OK}]",
         title_justify="left",
         show_header=True,
         header_style=f"bold {KY}",
@@ -323,10 +323,8 @@ def main() -> None:
     _boot_line("MOD", f"{len(loaded)} modules loaded", animated=False)
     console.print()
 
-    module_line = f"  [{HL}]◈  {len(loaded)} module(s) active[/{HL}]\n"
+    module_line = f"  [{HL}]+  {len(loaded)} module(s) active[/{HL}]\n"
     console.print(module_line)
-
-    # Main loop
     first_iter = True
     while True:
         if not first_iter:
@@ -362,7 +360,7 @@ def main() -> None:
 
         if ran:
             console.print(
-                f"  [bold {OK}]✔[/bold {OK}]  [{DM}]results saved to database[/{DM}]"
+                f"  [bold {OK}]+[/bold {OK}]  [{DM}]results saved to database[/{DM}]"
             )
 
         try:
