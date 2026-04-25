@@ -64,58 +64,87 @@
 
 ## Installation
 
-### macOS
+> **Recommended method: manual virtual environment.**
+> Automated installs via Homebrew or pipx fail on Python 3.12+ with a `BackendUnavailable` error — see [Troubleshooting](#troubleshooting) below.
 
-**Via Homebrew (recommended):**
+### Quick Start (all platforms)
+
+**1. Clone the repository**
 
 ```bash
-brew tap Hybabybabyba/draedon
-brew install draedon
+git clone https://github.com/Hybabybabyba/Draedon.git
+cd Draedon
 ```
 
-**Via pip:**
+**2. Create and activate a virtual environment**
 
 ```bash
-pip3 install python-whois dnspython requests
-git clone https://github.com/Hybabybabyba/draedon.git
-cd draedon
-python3 main.py --list
+# Linux/macSos
+python3 -m venv venv
+source venv/bin/activate
+
+# Windows (Powershell)
+python -m venv venv
+.\venv\Scripts\activate
+```
+
+**3. Upgrade build tools** *(crucial - skipping this causes install failures)*
+
+```bash
+pip install --upgrade pip setuptools wheel
+```
+
+**4. Install dependencies**
+
+```bash
+pip install -r requirements.txt
+```
+
+**5. Run**
+
+```bash
+python3 main.py        # Linux/macSos
+python main.py         # Windows
 ```
 
 ---
 
-### Linux
+## Global Access (optional)
 
-**Via pip:**
+Run `draedon` from any directory without activating the venv each time.
 
-```bash
-pip install python-whois dnspython requests
-git clone https://github.com/Hybabybabyba/draedon.git
-cd draedon
-python3 main.py --list
-```
+**Linux / macOS — shell alias**
 
-**Via Homebrew on Linux:**
+Add to your `~/.bashrc` or `~/.zshrc`:
 
 ```bash
-brew tap Hybabybabyba/draedon
-brew install draedon
+alias draedon="source /path/to/Draedon/venv/bin/activate && python3 /path/to/Draedon/main.py"
 ```
 
----
+Then reload: `source ~/.bashrc`
 
-### Windows
+**Linux / macOS — launcher script**
 
-**Via pip (PowerShell or CMD):**
+```bash
+sudo tee /usr/local/bin/draedon > /dev/null << 'EOF'
+#!/usr/bin/env bash
+source /path/to/Draedon/venv/bin/activate
+python3 /path/to/Draedon/main.py "$@"
+EOF
+sudo chmod +x /usr/local/bin/draedon
+```
+
+**Windows — PowerShell alias**
+
+Add to your `$PROFILE`:
 
 ```powershell
-pip install python-whois dnspython requests
-git clone https://github.com/Hybabybabyba/draedon.git
-cd draedon
-python main.py --list
+function draedon {
+    & "C:\path\to\Draedon\venv\Scripts\python.exe" "C:\path\to\Draedon\main.py" @args
+}
 ```
 
-> Python 3.10+ is required. Download it from [python.org](https://python.org) or install via `winget install Python.Python.3`.
+Replace `/path/to/Draedon` with the actual path where you cloned the repo.
 
 ---
 
@@ -123,18 +152,16 @@ python main.py --list
 
 ```bash
 draedon
-
 ```
 
 Results are saved automatically to `output/recon.db` (SQLite) after each run.
 
----
 
 ## Adding a Module
 
 1. Create `modules/py_<name>.py`
 2. Subclass `base_module`, set `self.name`, `self.description`, `self.supported_types`
-3. Implement `run(self, target) -> module_result` — return `self.ok(data_dict)` or `self.fail(error_str)`
+3. Implement `run(self, target) -> module_result` - return `self.ok(data_dict)` or `self.fail(error_str)`
 4. The engine picks it up automatically on next run — no registration needed
 
 ---

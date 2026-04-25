@@ -1,0 +1,4 @@
+﻿venv/
+__pycache__/
+output/
+draedon.egg-info/
