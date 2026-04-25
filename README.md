@@ -110,7 +110,7 @@ python main.py         # Windows
 
 Run `draedon` from any directory without activating the venv each time.
 
-**Linux / macOS — shell alias**
+**Linux / macOS - shell alias**
 
 Add to your `~/.bashrc` or `~/.zshrc`:
 
@@ -120,7 +120,7 @@ alias draedon="source /path/to/Draedon/venv/bin/activate && python3 /path/to/Dra
 
 Then reload: `source ~/.bashrc`
 
-**Linux / macOS — launcher script**
+**Linux / macOS - launcher script**
 
 ```bash
 sudo tee /usr/local/bin/draedon > /dev/null << 'EOF'
@@ -131,7 +131,7 @@ EOF
 sudo chmod +x /usr/local/bin/draedon
 ```
 
-**Windows — PowerShell alias**
+**Windows - PowerShell alias**
 
 Add to your `$PROFILE`:
 
