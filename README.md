@@ -64,9 +64,6 @@
 
 ## Installation
 
-> **Recommended method: manual virtual environment.**
-> Automated installs via Homebrew or pipx fail on Python 3.12+ with a `BackendUnavailable` error — see [Troubleshooting](#troubleshooting) below.
-
 ### Quick Start (all platforms)
 
 **1. Clone the repository**
